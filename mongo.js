@@ -38,8 +38,9 @@ var url = "mongodb+srv://mongo:mongo@cluster0.lmmmb.mongodb.net/myDB?retryWrites
 MongoClient.connect(url, (err, db) => {
     if (err) throw err;
     var dbo = db.db("myDB");
-    var query = { _id: 1 };
-    dbo.collection("customers").find().sort(query).toArray((err, res) => {
+    var query = { name: "Jaspris" };
+    var values = { name: "rohit", age: "30" };
+    dbo.collection("cutomer").find().limit(2).toArray((err, res) => {
         if (err) throw err;
         console.log(res);
         db.close();
